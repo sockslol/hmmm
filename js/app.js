@@ -20,7 +20,6 @@ function updateHP() {
     document.getElementById("hpText").innerHTML = "HP: " + hp
 
     if (hp > 0) {
-        hpsub = Math.floor(Math.random() * 20) + 10;
         hp -= hpsub
     }
     
@@ -43,14 +42,28 @@ function updateHP() {
 function runHitCalculation() {
     let hitChance = Math.random()
 
-    if (hitChance > 0.9) {
+    if (hitChance > 0.85) {
         document.getElementById("battleText").innerHTML = "The attack missed!"
         console.log("Broke Boy missed")
 
+    } else if (hitChance > 0.75) {
+        document.getElementById("battleText").innerHTML = "The attack was a critical hit!"
+        hpsub = Math.floor(Math.random() * 20) + 10;
+        console.log("before multiply" + hpsub)
+        hpsub = hpsub * 1.5
+
+        hpsub = Math.round(hpsub)
+        console.log("after multiply" + hpsub)
+        
+        console.log("Critted nerd")
+        updateHP()
+
     } else {
         document.getElementById("battleText").innerHTML = "The attack hit!"
+        hpsub = Math.floor(Math.random() * 20) + 10;
         updateHP()
     }
+
 }
 
 
