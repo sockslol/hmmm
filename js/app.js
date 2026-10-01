@@ -20,7 +20,7 @@ function updateHP() {
     document.getElementById("hpText").innerHTML = "HP: " + hp
 
     if (hp > 0) {
-        hpsub = Math.floor(Math.random() * 20) + 5;
+        hpsub = Math.floor(Math.random() * 20) + 10;
         hp -= hpsub
     }
     
